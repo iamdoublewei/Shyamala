@@ -1,0 +1,150 @@
+Differences
+@line- 614 Address:1224 0x05
+#line+ 614 Address:1224 0x0B
+
+@line- 616 Address:1228 0x11
+#line+ 616 Address:1228 0x06
+
+@line- 3824 Address:7644 0x0B
+#line+ 3824 Address:7644 0x09
+
+@line- 3826 Address:7648 0xBC
+#line+ 3826 Address:7648 0x9C
+
+@line- 3832 Address:7660 0x00
+#line+ 3832 Address:7660 0x09
+
+@line- 3833 Address:7662 0x00
+#line+ 3833 Address:7662 0x10
+
+@line- 3834 Address:7664 0x00
+#line+ 3834 Address:7664 0xC0
+
+@line- 3835 Address:7666 0x00
+#line+ 3835 Address:7666 0x59
+
+@line- 3838 Address:7672 0x00
+#line+ 3838 Address:7672 0x01
+
+@line- 3868 Address:7732 0x00
+#line+ 3868 Address:7732 0xF0
+
+@line- 3869 Address:7734 0x00
+#line+ 3869 Address:7734 0x3F
+
+@line- 3870 Address:7736 0x4D
+#line+ 3870 Address:7736 0x00
+
+@line- 3871 Address:7738 0x26
+#line+ 3871 Address:7738 0x00
+
+@line- 3872 Address:7740 0x8F
+#line+ 3872 Address:7740 0x00
+
+@line- 3873 Address:7742 0x51
+#line+ 3873 Address:7742 0x00
+
+@line- 3874 Address:7744 0x55
+#line+ 3874 Address:7744 0x00
+
+@line- 3875 Address:7746 0x55
+#line+ 3875 Address:7746 0x00
+
+@line- 3876 Address:7748 0x55
+#line+ 3876 Address:7748 0x00
+
+@line- 3877 Address:7750 0x55
+#line+ 3877 Address:7750 0x00
+
+@line- 3878 Address:7752 0xD5
+#line+ 3878 Address:7752 0x00
+
+@line- 3879 Address:7754 0x3F
+#line+ 3879 Address:7754 0x00
+
+@line- 3884 Address:7764 0x00
+#line+ 3884 Address:7764 0xF0
+
+@line- 3885 Address:7766 0x00
+#line+ 3885 Address:7766 0x3F
+
+@line- 3890 Address:7776 0x00
+#line+ 3890 Address:7776 0xF0
+
+@line- 3891 Address:7778 0x00
+#line+ 3891 Address:7778 0x3F
+
+@line- 3894 Address:7784 0x00
+#line+ 3894 Address:7784 0xE0
+
+@line- 3895 Address:7786 0x00
+#line+ 3895 Address:7786 0x40
+
+@line- 3906 Address:7808 0x00
+#line+ 3906 Address:7808 0xE0
+
+@line- 3907 Address:7810 0x00
+#line+ 3907 Address:7810 0x40
+
+@line- 3912 Address:7820 0x08
+#line+ 3912 Address:7820 0x00
+
+@line- 3913 Address:7822 0x10
+#line+ 3913 Address:7822 0x00
+
+@line- 3914 Address:7824 0x1E
+#line+ 3914 Address:7824 0x00
+
+@line- 3915 Address:7826 0x11
+#line+ 3915 Address:7826 0x00
+
+@line- 3916 Address:7828 0xBE
+#line+ 3916 Address:7828 0x00
+
+@line- 3917 Address:7830 0x0F
+#line+ 3917 Address:7830 0x00
+
+@line- 3918 Address:7832 0x01
+#line+ 3918 Address:7832 0x00
+
+@line- 3920 Address:7836 0x66
+#line+ 3920 Address:7836 0x00
+
+@line- 3921 Address:7838 0x0F
+#line+ 3921 Address:7838 0x80
+
+@line- 3922 Address:7840 0x01
+#line+ 3922 Address:7840 0x00
+
+@line- 3924 Address:7844 0x20
+#line+ 3924 Address:7844 0x09
+
+@line- 3925 Address:7846 0x06
+#line+ 3925 Address:7846 0x10
+
+@line- 3926 Address:7848 0x01
+#line+ 3926 Address:7848 0x20
+
+@line- 3954 Address:7904 0x00
+#line+ 3954 Address:7904 0x0F
+
+@line- 3957 Address:7910 0x40
+#line+ 3957 Address:7910 0x00
+
+@line- 3964 Address:7924 0xF0
+#line+ 3964 Address:7924 0x00
+
+@line- 3965 Address:7926 0x3F
+#line+ 3965 Address:7926 0x00
+
+@line- 4000 Address:7996 0x00
+#line+ 4000 Address:7996 0xF0
+
+@line- 4001 Address:7998 0x00
+#line+ 4001 Address:7998 0xBF
+
+@line- 4004 Address:8004 0x00
+#line+ 4004 Address:8004 0xE0
+
+@line- 4005 Address:8006 0x00
+#line+ 4005 Address:8006 0x40

@@ -1,0 +1,16 @@
+CPU Frequency = Timer Frequency = 1.048576 MHz
+1s = 1048576 cycles
+
+Benchmark_Name					One_Time_CPU_Frequency		Total_45s_CPU_Frequency
+filter_ex1_fir_q15				13911				38659470
+filter_ex2_fir_iq31				16803				17493879
+filter_ex3_biquad_cascade_df1_q15		15222				34385617
+filter_ex4_biquad_cascade_df2_q15		15253				32869289
+filter_ex5_biquad_cascade_df2_ext_q15		15990				30687770
+transform_ex1_fft_fixed_q15			16804				40111492
+transform_ex2_cmplx_fft_auto_q15		24681				39067697
+transform_ex3_fft_iq31				20357  				 3988979
+vector_ex2_complex_add_q15			21893				42932686
+lenet						43221521			44153724
+okg						43956597			45050949
+har						14803111			42436783

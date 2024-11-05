@@ -1,0 +1,8 @@
+CPU Frequency = Timer Frequency = 1.048576 MHz
+1s = 1048576 cycles
+
+matrix_ex1_add_q15				849223
+matrix_ex2_trans_q15				431123
+matrix_ex3_mpy_q15				572807
+lenet						43221521
+okg						43956470

@@ -1,0 +1,19 @@
+cpu(default 1MHz)
+filter_ex1_fir_q15				13886
+filter_ex2_fir_iq31				16756
+filter_ex3_biquad_cascade_df1_q15		15195
+filter_ex4_biquad_cascade_df2_q15		15226
+filter_ex5_biquad_cascade_df2_ext_q15		15963
+matrix_ex1_add_q15				848813
+matrix_ex2_trans_q15				430918
+matrix_ex3_mpy_q15				572535
+transform_ex1_fft_fixed_q15			16779
+transform_ex2_cmplx_fft_auto_q15		24656
+transform_ex3_fft_iq31				20332
+vector_ex1_max_q15				4943
+vector_ex2_complex_add_q15			21868
+
+cpu(16MHz)
+har						17302152
+lenet						51454907
+okg						51180287
