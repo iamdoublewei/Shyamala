@@ -43,20 +43,24 @@
  *
  * --/COPYRIGHT--*/
 //******************************************************************************
-//   MSP430FR599x Demo - Long word writes to FRAM
+//  MSP430FR5x9x Demo - DMA0, Repeated Block to-from RAM, Software Trigger
 //
-//   Description: Use long word write to write to 512 byte blocks of FRAM.
-//   Toggle LED after every 100 writes.
+//  Description: A 16 word block from 1C20-1C2Fh is transferred to 1C40h-1C4fh
+//  using DMA0 in a burst block using software DMAREQ trigger.
+//  After each transfer, source, destination and DMA size are
+//  reset to initial software setting because DMA transfer mode 5 is used.
+//  P1.0 is toggled during DMA transfer only for demonstration purposes.
+//  ** RAM location 0x1C00 - 0x1C3F used - make sure no compiler conflict **
 //   MCLK = SMCLK = default DCO
 //
-//           MSP430FR5994
-//         ---------------
-//     /|\|               |
-//      | |               |
-//      --|RST            |
-//        |               |
-//        |               |
-//        |          P1.0 |---> LED
+//
+//                 MSP430FR5994
+//             -----------------
+//         /|\|                 |
+//          | |                 |
+//          --|RST              |
+//            |                 |
+//            |             P1.0|-->LED
 //
 //   William Goh
 //   Texas Instruments Inc.
@@ -65,12 +69,9 @@
 //******************************************************************************
 #include <msp430.h>
 #include <stdint.h>
-#include "driverlib/driverlib.h"
 
 uint8_t Data[16] = {0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xaa, 0xbb, 0xcc, 0xdd, 0xee, 0xff};
 uint32_t i;
-
-void FRAMWrite(void);
 
 #if defined(__TI_COMPILER_VERSION__)
 #pragma PERSISTENT(FRAM_write)
@@ -82,6 +83,8 @@ unsigned long __attribute__((persistent)) FRAM_write[WRITE_SIZE] = {0};
 #else
 #error Compiler not supported!
 #endif
+
+void FRAMWrite(void);
 
 int main(void)
 {
@@ -96,25 +99,20 @@ int main(void)
         FRAMWrite();
     }
     __no_operation();
+
 }
 
 void FRAMWrite(void)
 {
-    // DMA Triggers
-    DMACTL0 = DMA0TSEL_11 | DMA1TSEL_12;
-    // Configure Channel 0
-    DMA0CTL = DMADT_0 | DMALEVEL | DMASRCINCR_0 | DMADSTINCR_3;
-    // Channel 0 Source Address
-    __data20_write_long((unsigned long)&DMA0SA, (unsigned long)Data);
-    // Channel 0 DestinationAddress
-    __data20_write_long((unsigned long)&DMA0DA, (unsigned long)FRAM_write);
-    // Channel 0 Size (Size in words - 16bits)
-    DMA0SZ = 8;
-    // Enable Channel 0
-    DMA0CTL |= DMAEN;
-    // Wait for end of DMA
-    while (!(DMA0CTL & DMAIFG)) ;
-    // Disable DMA
-    DMA0CTL = DMA0CTL & (~DMAEN);
-    DMA1CTL = DMA1CTL & (~DMAEN);
+    // Configure DMA channel 0
+    __data20_write_long((uintptr_t) &DMA0SA,(uintptr_t) Data);
+                                            // Source block address
+    __data20_write_long((uintptr_t) &DMA0DA,(uintptr_t) FRAM_write);
+                                            // Destination single address
+    DMA0SZ = 8;                            // Block size
+    DMA0CTL = DMADT_5 | DMALEVEL | DMASRCINCR_3 | DMADSTINCR_3; // Rpt, inc
+    DMA0CTL |= DMAEN;                       // Enable DMA0
+
+    DMA0CTL |= DMAREQ;                  // Trigger block transfer
+
 }

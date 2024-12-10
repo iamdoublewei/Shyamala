@@ -122,10 +122,10 @@ endif
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXE_OUTPUTS += \
-s_ram_to_fram_cpu.out 
+s_ram_to_fram_cpu.out \
 
 EXE_OUTPUTS__QUOTED += \
-"s_ram_to_fram_cpu.out" 
+"s_ram_to_fram_cpu.out" \
 
 
 # All Target

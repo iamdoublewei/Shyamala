@@ -1,4 +1,4 @@
-"Benchmark															",Time (ns),Current (nA),Voltage (mV),Energy (uJ),cnt
+Benchmark,Time (ns),Current (nA),Voltage (mV),Energy (uJ),cnt
 filter_ex1_fir_q15,1219747000,2135000,3291,8553.6,100
 filter_ex2_fir_iq31,5946459000,2135400,3293,41630.4,100
 filter_ex3_biquad_cascade_df1_q15,2291720000,2120900,3290,16088,100

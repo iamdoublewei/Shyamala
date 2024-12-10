@@ -1,0 +1,3 @@
+Methods,Time (ns),Current (nA),Voltage (mV),Energy (uJ),Count
+"Ram_to_Fram_CPU","221296953000","2055200","3293","1519230.4","1000000"
+"Ram_to_Fram_DMA","75691386000","2108500","3293","531217.9","1000000"
