@@ -86,6 +86,39 @@ unsigned long __attribute__((persistent)) FRAM_write[WRITE_SIZE] = {0};
 
 void FRAMWrite(void);
 
+// version 1
+//int main(void)
+//{
+//    WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
+//
+//    // Disable the GPIO power-on default high-impedance mode to activate
+//    // previously configured port settings
+//    PM5CTL0 &= ~LOCKLPM5;
+//
+//    for (i=0; i<1000000; i++)
+//    {
+//        FRAMWrite();
+//    }
+//    __no_operation();
+//
+//}
+//
+//void FRAMWrite(void)
+//{
+//    // Configure DMA channel 0
+//    __data20_write_long((uintptr_t) &DMA0SA,(uintptr_t) Data);
+//                                            // Source block address
+//    __data20_write_long((uintptr_t) &DMA0DA,(uintptr_t) FRAM_write);
+//                                            // Destination single address
+//    DMA0SZ = 8;                            // Block size
+//    DMA0CTL = DMADT_5 | DMALEVEL | DMASRCINCR_3 | DMADSTINCR_3; // Rpt, inc
+//    DMA0CTL |= DMAEN;                       // Enable DMA0
+//
+//    DMA0CTL |= DMAREQ;                  // Trigger block transfer
+//
+//}
+
+// version 2
 int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
@@ -96,23 +129,17 @@ int main(void)
 
     for (i=0; i<1000000; i++)
     {
-        FRAMWrite();
+        // Configure DMA channel 0
+        __data20_write_long((uintptr_t) &DMA0SA,(uintptr_t) Data);
+                                                // Source block address
+        __data20_write_long((uintptr_t) &DMA0DA,(uintptr_t) FRAM_write);
+                                                // Destination single address
+        DMA0SZ = 8;                            // Block size
+        DMA0CTL = DMADT_5 | DMALEVEL | DMASRCINCR_3 | DMADSTINCR_3; // Rpt, inc
+        DMA0CTL |= DMAEN;                       // Enable DMA0
+
+        DMA0CTL |= DMAREQ;                  // Trigger block transfer
     }
     __no_operation();
-
-}
-
-void FRAMWrite(void)
-{
-    // Configure DMA channel 0
-    __data20_write_long((uintptr_t) &DMA0SA,(uintptr_t) Data);
-                                            // Source block address
-    __data20_write_long((uintptr_t) &DMA0DA,(uintptr_t) FRAM_write);
-                                            // Destination single address
-    DMA0SZ = 8;                            // Block size
-    DMA0CTL = DMADT_5 | DMALEVEL | DMASRCINCR_3 | DMADSTINCR_3; // Rpt, inc
-    DMA0CTL |= DMAEN;                       // Enable DMA0
-
-    DMA0CTL |= DMAREQ;                  // Trigger block transfer
 
 }

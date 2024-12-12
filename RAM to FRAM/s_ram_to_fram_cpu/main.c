@@ -82,6 +82,34 @@ unsigned long __attribute__((persistent)) FRAM_write[WRITE_SIZE] = {0};
 #error Compiler not supported!
 #endif
 
+// version 1
+//int main(void)
+//{
+//    WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
+//
+//    // Disable the GPIO power-on default high-impedance mode to activate
+//    // previously configured port settings
+//    PM5CTL0 &= ~LOCKLPM5;
+//
+//    for (i=0; i<1000000; i++)
+//    {
+//        FRAMWrite();
+//    }
+//    __no_operation();
+//}
+//
+//void FRAMWrite(void)
+//{
+//    uint8_t j;
+//
+//    for (j=0; j<16; j++)
+//    {
+//        FRAM_write[j] = Data[j];
+//    }
+//}
+
+
+////version 2
 int main(void)
 {
     WDTCTL = WDTPW | WDTHOLD;               // Stop WDT
@@ -90,19 +118,13 @@ int main(void)
     // previously configured port settings
     PM5CTL0 &= ~LOCKLPM5;
 
+    uint8_t j;
     for (i=0; i<1000000; i++)
     {
-        FRAMWrite();
+        for (j=0; j<16; j++)
+        {
+            FRAM_write[j] = Data[j];
+        }
     }
     __no_operation();
-}
-
-void FRAMWrite(void)
-{
-    uint8_t j;
-
-    for (j=0; j<16; j++)
-    {
-        FRAM_write[j] = Data[j];
-    }
 }
